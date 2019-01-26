@@ -68,6 +68,7 @@ envinject:2.1.6
 extensible-choice-parameter:1.6.0
 external-monitor-job:1.7
 favorite:2.3.2
+filesystem_scm:2.1
 gatling:1.2.5
 git-changelog:2.15
 git-client:2.7.6
@@ -91,6 +92,7 @@ icon-shim:2.0.3
 ivy:1.28
 jackson2-api:2.9.8
 javadoc:1.4
+jclouds-jenkins:2.14
 jdk-tool:1.2
 jenkins-design-language:1.10.1
 jira-steps:1.4.4
