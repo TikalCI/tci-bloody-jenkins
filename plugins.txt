@@ -204,7 +204,6 @@ kubernetes-pipeline-aggregator:1.5
 kubernetes-pipeline-arquillian-steps:1.5
 kubernetes-pipeline-devops-steps:1.5
 kubernetes-pipeline-steps:1.5
-mapdb-api:1.0.9.0
 nodelabelparameter:1.7.2
 openstack-cloud:2.40
 openJDK-native-plugin:1.1
