@@ -3,9 +3,48 @@
 ## Known Issues
 > Due to [An open Issue with envconsul and vault > 0.9.6](https://github.com/hashicorp/envconsul/issues/175), Only Vault versions <= 0.9.6 can be used
 
+## 2.150.2-105
+* Support mode = NORMAL or EXCLUSIVE in docker templates [#129](https://github.com/odavid/my-bloody-jenkins/pull/129)
+* Updated plugins:
+    * [metrics:4.0.2.3](https://plugins.jenkins.io/metrics)
+    * [docker-plugin:1.1.6](https://plugins.jenkins.io/docker-plugin)
+    * [git-client:2.7.6](https://plugins.jenkins.io/git-client)
+    * [git:3.9.3](https://plugins.jenkins.io/git)
+    * [slack:2.16](https://plugins.jenkins.io/slack)
+    * [timestamper:1.9](https://plugins.jenkins.io/timestamper)
 
-## 2.150.2-103 (Not released yet)
+## 2.150.2-104
+* Updated plugins:
+    * [ansicolor:0.6.2](https://plugins.jenkins.io/ansicolor)
+    * [cloudbees-bitbucket-branch-source:2.4.1](https://plugins.jenkins.io/cloudbees-bitbucket-branch-source)
+    * [durable-task:1.29](https://plugins.jenkins.io/durable-task)
+    * [slack:2.15](https://plugins.jenkins.io/slack)
+    * [workflow-cps-global-lib:2.13](https://plugins.jenkins.io/workflow-cps-global-lib)
+    * [workflow-cps:2.63](https://plugins.jenkins.io/workflow-cps)
+    * [workflow-durable-task-step:2.29](https://plugins.jenkins.io/workflow-durable-task-step)
+    * [workflow-step-api:2.19](https://plugins.jenkins.io/workflow-step-api)
+    * [workflow-support:3.2](https://plugins.jenkins.io/workflow-support)
+
+## 2.150.2-103
 * Enable to put a tag in the 'branch' setting of a seed-job [#125](https://github.com/odavid/my-bloody-jenkins/pull/125)
+* Updated plugins:
+    * [code-coverage-api:1.0.7](https://plugins.jenkins.io/code-coverage-api)
+    * [cucumber-reports:4.4.0](https://plugins.jenkins.io/cucumber-reports)
+    * [mercurial:2.5](https://plugins.jenkins.io/mercurial)
+    * [active-directory:2.11](https://plugins.jenkins.io/active-directory)
+        * NOTE: `tlsConfiguration` should be configured within domain element, instead of realm element
+    * [blueocean:1.10.2](https://plugins.jenkins.io/blueocean)
+    * [config-file-provider:3.5](https://plugins.jenkins.io/config-file-provider)
+    * [git:3.9.2](https://plugins.jenkins.io/git)
+    * [script-security:1.51](https://plugins.jenkins.io/script-security)
+    * [token-macro:2.6](https://plugins.jenkins.io/token-macro)
+    * [configuration-as-code:1.5](https://plugins.jenkins.io/configuration-as-code)
+    * [git-client:3.0.0-rc](https://plugins.jenkins.io/git-client)
+    * [git:4.0.0-rc](https://plugins.jenkins.io/git)
+* Added plugins:
+    * [custom-tools-plugin:0.6](https://plugins.jenkins.io/custom-tools-plugin)
+    * [nodejs:1.2.7](https://plugins.jenkins.io/nodejs)
+    * [sbt:1.5](https://plugins.jenkins.io/sbt)
 
 ## 2.150.2-102
 * Updated plugins:
