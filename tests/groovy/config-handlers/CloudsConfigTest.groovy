@@ -53,6 +53,7 @@ ecs-cloud:
       extraHosts:
         extrHost1: extrHost1
         extrHost2: extrHost2
+      inheritFrom: xxx
       volumes:
         - /home/xxx
         - /home/bbb:ro
@@ -114,6 +115,7 @@ ecs-cloud:
         assert it.jenkinsUrl == 'http://127.0.0.1:8080'
         assert it.tunnel == '127.0.0.1:8080'
         def template = it.templates[0]
+        assert template.inheritFrom == 'xxx'
         assert template.templateName == ''  // taskDefinitionOverride
         assert template.launchType == 'EC2'
         assert template.executionRole == 'ecsTaskExecutionRole111'
@@ -293,7 +295,7 @@ kube-cloud:
           new org.csanchez.jenkins.plugins.kubernetes.PodAnnotation('key1', 'value1'),
           new org.csanchez.jenkins.plugins.kubernetes.PodAnnotation('key2', 'value2'),
         ]
-        assert template.yaml.trim() == 'x: y\nz: z'
+        assert template.yamls[0].trim() == 'x: y\nz: z'
         assert template.serviceAccount == 'jenkins-service-account'
         assert template.slaveConnectTimeout == 60
         assert template.instanceCapStr == '10'

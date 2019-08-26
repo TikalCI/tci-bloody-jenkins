@@ -189,14 +189,16 @@ def ecsCloud(config){
                     def hostPort = parts.size() > 1 ? parts[0] : null
                     def containerPort = parts.size() > 1 ? parts[1] : parts[0]
                     return new ECSTaskTemplate.PortMappingEntry(asInt(containerPort), asInt(hostPort), "tcp")
-                }
+                },
+                temp.executionRole ?: 'ecsTaskExecutionRole',
+                temp.taskrole,
+                temp.inheritFrom,
+                asInt(temp.sharedMemorySize),
             )
-            ecsTemplate.executionRole = temp.executionRole ?: 'ecsTaskExecutionRole'
             ecsTemplate.jvmArgs = temp.jvmArgs
             ecsTemplate.entrypoint = temp.entrypoint
             ecsTemplate.logDriver = temp.logDriver
             ecsTemplate.dnsSearchDomains = temp.dns
-            ecsTemplate.taskrole = temp.taskrole
             return ecsTemplate
         }
 

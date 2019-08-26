@@ -3,6 +3,469 @@
 ## Known Issues
 > Due to [An open Issue with envconsul and vault > 0.9.6](https://github.com/hashicorp/envconsul/issues/175), Only Vault versions <= 0.9.6 can be used
 
+## 2.176.2-147
+* Updated plugins:
+    * [cloudbees-bitbucket-branch-source:2.4.6](https://plugins.jenkins.io/cloudbees-bitbucket-branch-source)
+    * [configuration-as-code:1.28](https://plugins.jenkins.io/configuration-as-code)
+    * [git-client:2.8.2](https://plugins.jenkins.io/git-client)
+    * [job-dsl:1.76](https://plugins.jenkins.io/job-dsl)
+
+## 2.176.2-146
+* Updated plugins:
+    * [jira:3.0.9](https://plugins.jenkins.io/jira)
+    * [jquery:1.12.4-1](https://plugins.jenkins.io/jquery)
+    * [slack:2.32](https://plugins.jenkins.io/slack)
+    * [workflow-job:2.34](https://plugins.jenkins.io/workflow-job)
+
+## 2.176.2-145
+* Updated plugins:
+    * [custom-tools-plugin:0.7](https://plugins.jenkins.io/custom-tools-plugin)
+    * [git:3.12.0](https://plugins.jenkins.io/git)
+    * [slack:2.31](https://plugins.jenkins.io/slack)
+
+## 2.176.2-144
+* Updated plugins:
+    * [git-server:1.8](https://plugins.jenkins.io/git-server)
+    * [slack:2.29](https://plugins.jenkins.io/slack)
+    * [cucumber-reports:4.9.0](https://plugins.jenkins.io/cucumber-reports)
+    * [github-branch-source:2.5.6](https://plugins.jenkins.io/github-branch-source)
+    * [job-dsl:1.75](https://plugins.jenkins.io/job-dsl)
+    * [pubsub-light:1.13](https://plugins.jenkins.io/pubsub-light)
+
+## 2.176.2-143
+* Updated plugins:
+    * [blueocean:1.18.1](https://plugins.jenkins.io/blueocean)
+    * [configuration-as-code:1.27](https://plugins.jenkins.io/configuration-as-code)
+    * [credentials-binding:1.20](https://plugins.jenkins.io/credentials-binding)
+    * [dashboard-view:2.11](https://plugins.jenkins.io/dashboard-view)
+    * [pipeline-stage-view:2.12](https://plugins.jenkins.io/pipeline-stage-view)
+
+## 2.176.2-142
+* Updated plugins:
+    * [pipeline-maven:3.8.1](https://plugins.jenkins.io/pipeline-maven)
+* Added plugins:
+    * [pipeline-aws:1.38](https://plugins.jenkins.io/pipeline-aws)
+
+## 2.176.2-141
+* Updated plugins:
+    * [h2-api:1.4.199](https://plugins.jenkins.io/h2-api)
+    * [pam-auth:1.5.1](https://plugins.jenkins.io/pam-auth)
+    * [windows-slaves:1.4](https://plugins.jenkins.io/windows-slaves)
+    * [blueocean-executor-info:1.18.0](https://plugins.jenkins.io/blueocean-executor-info)
+
+## 2.176.2-140
+* Updated plugins:
+    * [configuration-as-code:1.25](https://plugins.jenkins.io/configuration-as-code)
+    * [credentials:2.2.1](https://plugins.jenkins.io/credentials)
+    * [display-url-api:2.3.2](https://plugins.jenkins.io/display-url-api)
+    * [docker-workflow:1.19](https://plugins.jenkins.io/docker-workflow)
+    * [kubernetes:1.18.1](https://plugins.jenkins.io/kubernetes)
+    * [maven-plugin:3.4](https://plugins.jenkins.io/maven-plugin)
+    * [script-security:1.62](https://plugins.jenkins.io/script-security)
+    * [sse-gateway:1.19](https://plugins.jenkins.io/sse-gateway)
+    * [workflow-api:2.36](https://plugins.jenkins.io/workflow-api)
+    * [workflow-cps-global-lib:2.15](https://plugins.jenkins.io/workflow-cps-global-lib)
+    * [workflow-cps:2.73](https://plugins.jenkins.io/workflow-cps)
+
+## 2.176.2-139
+* Updated plugins:
+    * [code-coverage-api:1.0.13](https://plugins.jenkins.io/code-coverage-api)
+    * [git:3.11.0](https://plugins.jenkins.io/git)
+    * [github-branch-source:2.5.5](https://plugins.jenkins.io/github-branch-source)
+    * [jsch:0.1.55.1](https://plugins.jenkins.io/jsch)
+    * [kubernetes-credentials:0.4.1](https://plugins.jenkins.io/kubernetes-credentials)
+    * [mailer:1.24](https://plugins.jenkins.io/mailer)
+    * [stashNotifier:1.19](https://plugins.jenkins.io/stashNotifier)
+    * [structs:1.20](https://plugins.jenkins.io/structs)
+    * [variant:1.3](https://plugins.jenkins.io/variant)
+    * [workflow-durable-task-step:2.33](https://plugins.jenkins.io/workflow-durable-task-step)
+    * [kubernetes:1.18.0](https://plugins.jenkins.io/kubernetes)
+    * [mercurial:2.8](https://plugins.jenkins.io/mercurial)
+
+## 2.176.2-138
+* Updated plugins:
+    * [amazon-ecs:1.22](https://plugins.jenkins.io/amazon-ecs)
+    * [checkmarx:8.90.4](https://plugins.jenkins.io/checkmarx)
+    * [configuration-as-code:1.24](https://plugins.jenkins.io/configuration-as-code)
+    * [kubernetes-cli:1.7.0](https://plugins.jenkins.io/kubernetes-cli)
+    * [blueocean:1.18.0](https://plugins.jenkins.io/blueocean)
+    * [branch-api:2.5.4](https://plugins.jenkins.io/branch-api)
+    * [slack:2.28](https://plugins.jenkins.io/slack)
+
+## 2.176.2-137
+* [LTS-2.176.2](https://jenkins.io/changelog-stable/)
+* Updated plugins:
+    * [code-coverage-api:1.0.12](https://plugins.jenkins.io/code-coverage-api)
+    * [google-login:1.5](https://plugins.jenkins.io/google-login)
+    * [kubernetes:1.17.2](https://plugins.jenkins.io/kubernetes)
+    * [aws-java-sdk:1.11.594](https://plugins.jenkins.io/aws-java-sdk)
+    * [checkmarx:8.90.3](https://plugins.jenkins.io/checkmarx)
+    * [envinject-api:1.6](https://plugins.jenkins.io/envinject-api)
+    * [envinject:2.2.0](https://plugins.jenkins.io/envinject)
+    * [github-branch-source:2.5.4](https://plugins.jenkins.io/github-branch-source)
+    * [google-login:1.6](https://plugins.jenkins.io/google-login)
+    * [jdk-tool:1.3](https://plugins.jenkins.io/jdk-tool)
+    * [p4:1.10.3](https://plugins.jenkins.io/p4)
+    * [resource-disposer:0.13](https://plugins.jenkins.io/resource-disposer)
+    * [ssh-slaves:1.30.1](https://plugins.jenkins.io/ssh-slaves)
+
+## 2.176.1-136
+* Updated plugins:
+    * [configuration-as-code:1.23](https://plugins.jenkins.io/configuration-as-code)
+    * [cucumber-reports:4.8.0](https://plugins.jenkins.io/cucumber-reports)
+    * [docker-plugin:1.1.7](https://plugins.jenkins.io/docker-plugin)
+    * [kubernetes:1.17.1](https://plugins.jenkins.io/kubernetes)
+    * [mercurial:2.7](https://plugins.jenkins.io/mercurial)
+    * [p4:1.10.2](https://plugins.jenkins.io/p4)
+    * [scm-api:2.6.3](https://plugins.jenkins.io/scm-api)
+    * [ssh-credentials:1.17.1](https://plugins.jenkins.io/ssh-credentials)
+    * [subversion:2.12.2](https://plugins.jenkins.io/subversion)
+    * [workflow-cps-global-lib:2.14](https://plugins.jenkins.io/workflow-cps-global-lib)
+    * [workflow-cps:2.72](https://plugins.jenkins.io/workflow-cps)
+
+## 2.176.1-135
+* Updated plugins:
+    * [durable-task:1.30](https://plugins.jenkins.io/durable-task)
+    * [embeddable-build-status:2.0.2](https://plugins.jenkins.io/embeddable-build-status)
+    * [git:3.10.1](https://plugins.jenkins.io/git)
+    * [gradle:1.33](https://plugins.jenkins.io/gradle)
+    * [jackson2-api:2.9.9.1](https://plugins.jenkins.io/jackson2-api)
+    * [kubernetes:1.16.7](https://plugins.jenkins.io/kubernetes)
+    * [script-security:1.61](https://plugins.jenkins.io/script-security)
+    * [timestamper:1.10](https://plugins.jenkins.io/timestamper)
+    * [workflow-cps:2.71](https://plugins.jenkins.io/workflow-cps)
+    * [workflow-durable-task-step:2.32](https://plugins.jenkins.io/workflow-durable-task-step)
+
+
+## 2.176.1-134
+* Updated plugins:
+    * [jira:3.0.8](https://plugins.jenkins.io/jira)
+    * [workflow-job:2.33](https://plugins.jenkins.io/workflow-job)
+    * [configuration-as-code:1.22](https://plugins.jenkins.io/configuration-as-code)
+    * [artifactory:3.3.2](https://plugins.jenkins.io/artifactory)
+    * [branch-api:2.5.3](https://plugins.jenkins.io/branch-api)
+    * [kubernetes:1.16.3](https://plugins.jenkins.io/kubernetes)
+    * [metrics:4.0.2.5](https://plugins.jenkins.io/metrics)
+    * [p4:1.10.1](https://plugins.jenkins.io/p4)
+
+
+## 2.176.1-133
+* Updated plugins:
+    * [groovy-postbuild:2.5](https://plugins.jenkins.io/groovy-postbuild)
+    * [pipeline-maven:3.8.0](https://plugins.jenkins.io/pipeline-maven)
+    * [promoted-builds:3.3](https://plugins.jenkins.io/promoted-builds)
+    * [cloudbees-bitbucket-branch-source:2.4.5](https://plugins.jenkins.io/cloudbees-bitbucket-branch-source)
+    * [http_request:1.8.23](https://plugins.jenkins.io/http_request)
+    * [sse-gateway:1.18](https://plugins.jenkins.io/sse-gateway)
+
+## 2.176.1-132
+* Updated plugins:
+    * [config-file-provider:3.6.2](https://plugins.jenkins.io/config-file-provider)
+    * [configuration-as-code:1.21](https://plugins.jenkins.io/configuration-as-code)
+    * [git-parameter:0.9.11](https://plugins.jenkins.io/git-parameter)
+    * [kubernetes:1.16.1](https://plugins.jenkins.io/kubernetes)
+    * [nodejs:1.3.3](https://plugins.jenkins.io/nodejs)
+    * [scm-api:2.5.1](https://plugins.jenkins.io/scm-api)
+    * [slack:2.27](https://plugins.jenkins.io/slack)
+
+## 2.176.1-131
+* Updated plugins:
+    * [cloudbees-folder:6.9](https://plugins.jenkins.io/cloudbees-folder)
+    * [cobertura:1.14](https://plugins.jenkins.io/cobertura)
+    * [metrics:4.0.2.4](https://plugins.jenkins.io/metrics)
+    * [maven-plugin:3.3](https://plugins.jenkins.io/maven-plugin)
+    * [nodejs:1.3.2](https://plugins.jenkins.io/nodejs)
+    * [artifactory:3.3.0](https://plugins.jenkins.io/artifactory)
+    * [git-client:2.8.0](https://plugins.jenkins.io/git-client)
+    * [scm-api:2.5.0](https://plugins.jenkins.io/scm-api)
+    * [slack:2.25](https://plugins.jenkins.io/slack)
+* Removed plugins:
+    * [configuration-as-code-support](https://plugins.jenkins.io/configuration-as-code)
+
+## 2.176.1-130
+* [LTS-2.176.1](https://jenkins.io/changelog-stable/)
+    * Stop distribution of slim based images
+* Updated plugins:
+    * [git-changelog:2.17](https://plugins.jenkins.io/git-changelog)
+    * [kubernetes:1.16.0](https://plugins.jenkins.io/kubernetes)
+    * [token-macro:2.8](https://plugins.jenkins.io/token-macro)
+
+## 2.164.3-129
+* Updated plugins:
+    * [artifactory:3.2.4](https://plugins.jenkins.io/artifactory)
+    * [badge:1.8](https://plugins.jenkins.io/badge)
+    * [configuration-as-code:1.20](https://plugins.jenkins.io/configuration-as-code)
+    * [kubernetes:1.15.6](https://plugins.jenkins.io/kubernetes)
+    * [nodejs:1.3.1](https://plugins.jenkins.io/nodejs)
+    * [pipeline-model-definition:1.3.9](https://plugins.jenkins.io/pipeline-model-definition)
+    * [slack:2.24](https://plugins.jenkins.io/slack)
+    * [ssh-credentials:1.17](https://plugins.jenkins.io/ssh-credentials)
+    * [ssh-slaves:1.30.0](https://plugins.jenkins.io/ssh-slaves)
+    * [workflow-api:2.35](https://plugins.jenkins.io/workflow-api)
+    * [workflow-basic-steps:2.18](https://plugins.jenkins.io/workflow-basic-steps)
+    * [workflow-cps:2.70](https://plugins.jenkins.io/workflow-cps)
+    * [workflow-durable-task-step:2.31](https://plugins.jenkins.io/workflow-durable-task-step)
+    * [workflow-scm-step:2.9](https://plugins.jenkins.io/workflow-scm-step)
+    * [workflow-step-api:2.20](https://plugins.jenkins.io/workflow-step-api)
+
+## 2.164.3-128
+* Updated plugins:
+    * [aws-java-sdk:1.11.562](https://plugins.jenkins.io/aws-java-sdk)
+    * [configuration-as-code:1.19](https://plugins.jenkins.io/configuration-as-code)
+    * [swarm:3.17](https://plugins.jenkins.io/swarm)
+
+## 2.164.3-127
+* Updated plugins:
+    * [checkmarx:8.90.1](https://plugins.jenkins.io/checkmarx)
+    * [p4:1.10.0](https://plugins.jenkins.io/p4)
+    * [configuration-as-code:1.18](https://plugins.jenkins.io/configuration-as-code)
+    * [credentials-binding:1.19](https://plugins.jenkins.io/credentials-binding)
+    * [credentials:2.2.0](https://plugins.jenkins.io/credentials)
+    * [pipeline-maven:3.7.1](https://plugins.jenkins.io/pipeline-maven)
+    * [script-security:1.60](https://plugins.jenkins.io/script-security)
+    * [workflow-remote-loader:1.5](https://plugins.jenkins.io/workflow-remote-loader)
+    * [nodejs:1.3.0](https://plugins.jenkins.io/nodejs)
+
+## 2.164.3-126
+* Updated plugins:
+    * [active-directory:2.16](https://plugins.jenkins.io/active-directory)
+    * [branch-api:2.5.2](https://plugins.jenkins.io/branch-api)
+    * [copyartifact:1.42.1](https://plugins.jenkins.io/copyartifact)
+    * [github-branch-source:2.5.3](https://plugins.jenkins.io/github-branch-source)
+    * [gradle:1.32](https://plugins.jenkins.io/gradle)
+    * [pipeline-maven:3.7.0](https://plugins.jenkins.io/pipeline-maven)
+    * [script-security:1.59](https://plugins.jenkins.io/script-security)
+    * [configuration-as-code:1.17](https://plugins.jenkins.io/configuration-as-code)
+    * [workflow-cps:2.69](https://plugins.jenkins.io/workflow-cps)
+
+## 2.164.3-125
+* Updated plugins:
+    * [pipeline-maven:3.6.14](https://plugins.jenkins.io/pipeline-maven)
+    * [active-directory:2.15](https://plugins.jenkins.io/active-directory)
+    * [anchore-container-scanner:1.0.19](https://plugins.jenkins.io/anchore-container-scanner)
+    * [blueocean-display-url:2.3.0](https://plugins.jenkins.io/blueocean-display-url)
+    * [branch-api:2.5.1](https://plugins.jenkins.io/branch-api)
+    * [code-coverage-api:1.0.11](https://plugins.jenkins.io/code-coverage-api)
+    * [configuration-as-code:1.16](https://plugins.jenkins.io/configuration-as-code)
+    * [credentials:2.1.19](https://plugins.jenkins.io/credentials)
+    * [cucumber-reports:4.7.0](https://plugins.jenkins.io/cucumber-reports)
+    * [jackson2-api:2.9.9](https://plugins.jenkins.io/jackson2-api)
+    * [kubernetes:1.15.5](https://plugins.jenkins.io/kubernetes)
+    * [sonar:2.9](https://plugins.jenkins.io/sonar)
+    * [swarm:3.16](https://plugins.jenkins.io/swarm)
+
+## 2.164.3-124
+* Updated plugins:
+    * [configuration-as-code:1.15](https://plugins.jenkins.io/configuration-as-code)
+    * [workflow-api:2.34](https://plugins.jenkins.io/workflow-api)
+    * [workflow-cps:2.68](https://plugins.jenkins.io/workflow-cps)
+    * [docker-commons:1.15](https://plugins.jenkins.io/docker-commons)
+    * [aws-credentials:1.27](https://plugins.jenkins.io/aws-credentials)
+    * [gatling:1.2.6](https://plugins.jenkins.io/gatling)
+    * [junit:1.28](https://plugins.jenkins.io/junit)
+    * [workflow-basic-steps:2.16](https://plugins.jenkins.io/workflow-basic-steps)
+    * [pipeline-graph-analysis:1.10](https://plugins.jenkins.io/pipeline-graph-analysis)
+    * [pipeline-maven:3.6.13](https://plugins.jenkins.io/pipeline-maven)
+
+
+## 2.164.3-123
+* [LTS-2.164.3](https://jenkins.io/changelog-stable/)
+* Updated plugins:
+    * [github-branch-source:2.5.2](https://plugins.jenkins.io/github-branch-source)
+    * [ivy:2.1](https://plugins.jenkins.io/ivy)
+    * [kubernetes:1.15.4](https://plugins.jenkins.io/kubernetes)
+    * [pipeline-maven:3.6.12](https://plugins.jenkins.io/pipeline-maven)
+
+## 2.164.2-122
+* Added plugins:
+    * [whitesource:19.1.1](https://plugins.jenkins.io/whitesource)
+
+## 2.164.2-121
+* Added plugins:
+    * [stashNotifier:1.18](https://plugins.jenkins.io/stashNotifier)
+    * [extended-choice-parameter:0.78](https://plugins.jenkins.io/extended-choice-parameter)
+* Updated plugins:
+    * [active-directory:2.14](https://plugins.jenkins.io/active-directory)
+    * [configuration-as-code:1.14](https://plugins.jenkins.io/configuration-as-code)
+
+## 2.164.2-120
+* Updated plugins:
+    * [amazon-ecs:1.20](https://plugins.jenkins.io/amazon-ecs)
+    * [blueocean:1.16.0](https://plugins.jenkins.io/blueocean)
+    * [code-coverage-api:1.0.10](https://plugins.jenkins.io/code-coverage-api)
+    * [github-branch-source:2.5.0](https://plugins.jenkins.io/github-branch-source)
+    * [jira:3.0.7](https://plugins.jenkins.io/jira)
+    * [matrix-auth:2.4.1](https://plugins.jenkins.io/matrix-auth)
+    * [rebuild:1.31](https://plugins.jenkins.io/rebuild)
+    * [structs:1.19](https://plugins.jenkins.io/structs)
+    * [github-branch-source:2.5.1](https://plugins.jenkins.io/github-branch-source)
+    * [job-dsl:1.74](https://plugins.jenkins.io/job-dsl)
+    * [pipeline-maven:3.6.11](https://plugins.jenkins.io/pipeline-maven)
+    * [git:3.10.0](https://plugins.jenkins.io/git)
+    * [matrix-auth:2.4.2](https://plugins.jenkins.io/matrix-auth)
+
+## 2.164.2-119
+* Updated plugins:
+    * [gitlab-plugin:1.5.12](https://plugins.jenkins.io/gitlab-plugin)
+    * [configuration-as-code:1.12](https://plugins.jenkins.io/configuration-as-code)
+    * [pipeline-stage-view:2.11](https://plugins.jenkins.io/pipeline-stage-view)
+    * [script-security:1.58](https://plugins.jenkins.io/script-security)
+    * [workflow-cps:2.67](https://plugins.jenkins.io/workflow-cps)
+    * [pipeline-maven:3.6.10](https://plugins.jenkins.io/pipeline-maven)
+    * [ssh-credentials:1.16](https://plugins.jenkins.io/ssh-credentials)
+    * [blueocean:1.15.0](https://plugins.jenkins.io/blueocean)
+    * [configuration-as-code:1.13](https://plugins.jenkins.io/configuration-as-code)
+    * [git:3.9.4](https://plugins.jenkins.io/git)
+    * [jenkins-design-language:1.15.0](https://plugins.jenkins.io/jenkins-design-language)
+    * [job-dsl:1.73](https://plugins.jenkins.io/job-dsl)
+    * [kubernetes:1.15.2](https://plugins.jenkins.io/kubernetes)
+    * [matrix-auth:2.4](https://plugins.jenkins.io/matrix-auth)
+    * [slack:2.23](https://plugins.jenkins.io/slack)
+    * [structs:1.18](https://plugins.jenkins.io/structs)
+    * [workflow-support:3.3](https://plugins.jenkins.io/workflow-support)
+
+## 2.164.2-118
+* [LTS-2.164.2](https://jenkins.io/changelog-stable/)
+* Updated plugins:
+    * [cucumber-reports:4.6.0](https://plugins.jenkins.io/cucumber-reports)
+    * [pipeline-build-step:2.9](https://plugins.jenkins.io/pipeline-build-step)
+    * [pipeline-model-definition:1.3.8](https://plugins.jenkins.io/pipeline-model-definition)
+
+## 2.164.1-117
+* Updated plugins:
+    * [branch-api:2.4.0](https://plugins.jenkins.io/branch-api)
+    * [cloudbees-bitbucket-branch-source:2.4.4](https://plugins.jenkins.io/cloudbees-bitbucket-branch-source)
+    * [cloudbees-folder:6.8](https://plugins.jenkins.io/cloudbees-folder)
+    * [scm-api:2.4.1](https://plugins.jenkins.io/scm-api)
+    * [embeddable-build-status:2.0.1](https://plugins.jenkins.io/embeddable-build-status)
+    * [mercurial:2.6](https://plugins.jenkins.io/mercurial)
+    * [configuration-as-code:1.11](https://plugins.jenkins.io/configuration-as-code)
+    * [git-client:2.7.7](https://plugins.jenkins.io/git-client)
+    * [p4:1.9.7](https://plugins.jenkins.io/p4)
+    * [script-security:1.57](https://plugins.jenkins.io/script-security)
+    * [slack:2.21](https://plugins.jenkins.io/slack)
+    * [workflow-cps:2.66](https://plugins.jenkins.io/workflow-cps)
+
+## 2.164.1-116
+* Updated plugins:
+    * [active-directory:2.13](https://plugins.jenkins.io/active-directory)
+    * [artifactory:3.2.2](https://plugins.jenkins.io/artifactory)
+    * [blueocean-autofavorite:1.2.4](https://plugins.jenkins.io/blueocean-autofavorite)
+    * [jira:3.0.6](https://plugins.jenkins.io/jira)
+    * [pipeline-maven:3.6.9](https://plugins.jenkins.io/pipeline-maven)
+    * [trilead-api:1.0.3](https://plugins.jenkins.io/trilead-api)
+    * [configuration-as-code:1.10](https://plugins.jenkins.io/configuration-as-code)
+    * [docker-commons:1.14](https://plugins.jenkins.io/docker-commons)
+    * [docker-workflow:1.18](https://plugins.jenkins.io/docker-workflow)
+    * [branch-api:2.3.0](https://plugins.jenkins.io/branch-api)
+    * [workflow-durable-task-step:2.30](https://plugins.jenkins.io/workflow-durable-task-step)
+
+## 2.164.1-115
+* Updated plugins:
+    * [config-file-provider:3.6](https://plugins.jenkins.io/config-file-provider)
+    * [email-ext:2.66](https://plugins.jenkins.io/email-ext)
+    * [lockable-resources:2.5](https://plugins.jenkins.io/lockable-resources)
+    * [rebuild:1.30](https://plugins.jenkins.io/rebuild)
+    * [script-security:1.56](https://plugins.jenkins.io/script-security)
+    * [slack:2.20](https://plugins.jenkins.io/slack)
+    * [workflow-cps:2.65](https://plugins.jenkins.io/workflow-cps)
+    * [code-coverage-api:1.0.9](https://plugins.jenkins.io/code-coverage-api)
+    * [display-url-api:2.3.1](https://plugins.jenkins.io/display-url-api)
+    * [github-branch-source:2.4.5](https://plugins.jenkins.io/github-branch-source)
+    * [pipeline-maven:3.6.8](https://plugins.jenkins.io/pipeline-maven)
+
+## 2.164.1-114
+* Updated plugins:
+    * [configuration-as-code:1.8](https://plugins.jenkins.io/configuration-as-code)
+    * [gradle:1.31](https://plugins.jenkins.io/gradle)
+    * [ivy:2.0](https://plugins.jenkins.io/ivy)
+    * [kubernetes:1.14.9](https://plugins.jenkins.io/kubernetes)
+    * [pipeline-build-step:2.8](https://plugins.jenkins.io/pipeline-build-step)
+    * [pipeline-input-step:2.10](https://plugins.jenkins.io/pipeline-input-step)
+    * [script-security:1.55](https://plugins.jenkins.io/script-security)
+    * [slack:2.19](https://plugins.jenkins.io/slack)
+    * [workflow-basic-steps:2.15](https://plugins.jenkins.io/workflow-basic-steps)
+    * [code-coverage-api:1.0.8](https://plugins.jenkins.io/code-coverage-api)
+    * [pipeline-model-definition:1.3.7](https://plugins.jenkins.io/pipeline-model-definition)
+    * [blueocean:1.14.0](https://plugins.jenkins.io/blueocean)
+    * [branch-api:2.2.0](https://plugins.jenkins.io/branch-api)
+    * [nodejs:1.2.9](https://plugins.jenkins.io/nodejs)
+    * [scm-api:2.4.0](https://plugins.jenkins.io/scm-api)
+
+## 2.164.1-113
+* [LTS-2.164.1](https://jenkins.io/changelog-stable/)
+* Add support for a Java 11 Jenkins image [#132](https://github.com/odavid/my-bloody-jenkins/issues/132)
+* Updated plugins:
+    * [nodejs:1.2.8](https://plugins.jenkins.io/nodejs)
+
+## 2.150.3-112
+* Removed Hipchat [#139](https://github.com/odavid/my-bloody-jenkins/pull/139)
+* Updated plugins:
+    * [ssh-credentials:1.15](https://plugins.jenkins.io/ssh-credentials)
+    * [workflow-job:2.32](https://plugins.jenkins.io/workflow-job)
+
+## 2.150.3-111
+* Updated plugins:
+    * [copyartifact:1.42](https://plugins.jenkins.io/copyartifact)
+    * [handy-uri-templates-2-api:2.1.7-1.0](https://plugins.jenkins.io/handy-uri-templates-2-api)
+    * [pipeline-model-definition:1.3.6](https://plugins.jenkins.io/pipeline-model-definition)
+    * [cucumber-reports:4.5.0](https://plugins.jenkins.io/cucumber-reports)
+    * [checkmarx:8.80.3](https://plugins.jenkins.io/checkmarx)
+    * [jira-steps:1.4.5](https://plugins.jenkins.io/jira-steps)
+    * [embeddable-build-status:2.0](https://plugins.jenkins.io/embeddable-build-status)
+    * [kubernetes:1.14.8](https://plugins.jenkins.io/kubernetes)
+    * [javadoc:1.5](https://plugins.jenkins.io/javadoc)
+    * [email-ext:2.65](https://plugins.jenkins.io/email-ext)
+    * [job-dsl:1.72](https://plugins.jenkins.io/job-dsl)
+    * [matrix-project:1.14](https://plugins.jenkins.io/matrix-project)
+    * [script-security:1.54](https://plugins.jenkins.io/script-security)
+    * [workflow-cps:2.64](https://plugins.jenkins.io/workflow-cps)
+    * [blueocean:1.13.2](https://plugins.jenkins.io/blueocean)
+    * [pipeline-utility-steps:2.3.0](https://plugins.jenkins.io/pipeline-utility-steps)
+    * [token-macro:2.7](https://plugins.jenkins.io/token-macro)
+    * [workflow-multibranch:2.21](https://plugins.jenkins.io/workflow-multibranch)
+
+## 2.150.3-110
+* Multiple images distribution [#134](https://github.com/odavid/my-bloody-jenkins/pull/134)
+* Updated plugins:
+    * [aws-credentials:1.26](https://plugins.jenkins.io/aws-credentials)
+    * [configuration-as-code:1.7](https://plugins.jenkins.io/configuration-as-code)
+    * [credentials-binding:1.18](https://plugins.jenkins.io/credentials-binding)
+    * [email-ext:2.64](https://plugins.jenkins.io/email-ext)
+    * [kubernetes-cli:1.6.0](https://plugins.jenkins.io/kubernetes-cli)
+    * [kubernetes:1.14.6](https://plugins.jenkins.io/kubernetes)
+
+
+## 2.150.3-109
+* Updated plugins:
+    * [artifactory:3.2.0](https://plugins.jenkins.io/artifactory)
+    * [git-changelog:2.16](https://plugins.jenkins.io/git-changelog)
+    * [git-parameter:0.9.9](https://plugins.jenkins.io/git-parameter)
+    * [github:1.29.4](https://plugins.jenkins.io/github)
+    * [kubernetes:1.14.5](https://plugins.jenkins.io/kubernetes)
+    * [variant:1.2](https://plugins.jenkins.io/variant)
+    * [git-parameter:0.9.10](https://plugins.jenkins.io/git-parameter)
+    * [slack:2.18](https://plugins.jenkins.io/slack)
+    * [artifactory:3.2.1](https://plugins.jenkins.io/artifactory)
+    * [cloudbees-bitbucket-branch-source:2.4.2](https://plugins.jenkins.io/cloudbees-bitbucket-branch-source)
+    * [configuration-as-code:1.6](https://plugins.jenkins.io/configuration-as-code)
+    * [script-security:1.53](https://plugins.jenkins.io/script-security)
+
+## 2.150.3-108
+* [LTS-2.150.3](https://jenkins.io/changelog-stable/)
+
+## 2.150.2-107
+* Updated plugins:
+    * [active-directory:2.12](https://plugins.jenkins.io/active-directory)
+    * [junit:1.27](https://plugins.jenkins.io/junit)
+    * [artifactory:3.1.2](https://plugins.jenkins.io/artifactory)
+    * [blueocean:1.11.1](https://plugins.jenkins.io/blueocean)
+    * [script-security:1.52](https://plugins.jenkins.io/script-security)
+    * [slack:2.17](https://plugins.jenkins.io/slack)
+
+## 2.150.2-106
+* Support file credential [#130](https://github.com/odavid/my-bloody-jenkins/pull/130)
+
 ## 2.150.2-105
 * Support mode = NORMAL or EXCLUSIVE in docker templates [#129](https://github.com/odavid/my-bloody-jenkins/pull/129)
 * Updated plugins:

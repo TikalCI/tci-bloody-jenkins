@@ -12,14 +12,14 @@ ability to configure most aspects of Jenkins from a **simple** and **single sour
 
 The image can get the configuration from several data sources such as: File, S3, Environment Variable, HTTP, Kubernetes ConfigMap and Kubernetes Secret.
 
-The image supports "Watching" configuration changes and applying them immedately without restarting jenkins.
+The image supports "Watching" configuration changes and applying them immediately without restarting jenkins.
 
-The image is "Battle Proven" and serves as the baseground for several Jenkins deployments in production.
+The image is "Battle Proven" and serves as the base ground for several Jenkins deployments in production.
 
 ## Features
 * Configuration Coverage:
   * Security Realm (LDAP/AD/Simple Jenkins database)
-  * Glabal Security Options
+  * Global Security Options
   * Authorization
   * Jenkins Clouds (Amazon ECS, Kubernetes, Docker)
   * Global Pipeline Libraries
@@ -70,17 +70,33 @@ For each git tag, there following tags will be created:
 * $LTS_VERSION - latest release for that LTS version
 * lts - represents the latest release
 
+
 Each master commit, will be tagged as latest
 
 ```bash
-# get the latest release
+# get the latest release, alpine
 docker pull odavid/my-bloody-jenkins:lts
-# get the latest 2.138.2 LTS
-docker pull odavid/my-bloody-jenkins:2.138.2
-# get a concrete 2.138.2 release
-docker pull odavid/my-bloody-jenkins:2.138.2-82
-# get the latest unstable image
+# get the latest debian release
+docker pull odavid/my-bloody-jenkins:lts-debian
+# get the latest jdk11 release
+docker pull odavid/my-bloody-jenkins:lts-jdk11
+
+# get the latest 2.164.1 LTS
+docker pull odavid/my-bloody-jenkins:2.164.1
+# get the latest 2.164.1 debian LTS
+docker pull odavid/my-bloody-jenkins:2.164.1-debian
+# get the latest 2.164.1 jdk11 LTS
+docker pull odavid/my-bloody-jenkins:2.164.1-jdk
+
+# get a concrete 2.164.1 release
+docker pull odavid/my-bloody-jenkins:v2.164.1-109
+
+# get the latest unstable image (alpine)
 docker pull odavid/my-bloody-jenkins
+# get the latest unstable debian image
+docker pull odavid/my-bloody-jenkins:debian
+# get the latest unstable jdk1 image
+docker pull odavid/my-bloody-jenkins:jdk11
 ```
 
 
@@ -342,7 +358,6 @@ security:
   securityOptions:
     preventCSRF: true # default true
     enableScriptSecurityForDSL: false # default false
-    enableCLIOverRemoting: false # default false
     enableAgentMasterAccessControl: true # default true
     disableRememberMe: false # default false
     sshdEnabled: true # default false, if true, port 16022 is exposed
@@ -471,6 +486,9 @@ Responsible for:
 * The following types are supported:
     * type: text - [simple secret](https://wiki.jenkins.io/display/JENKINS/Plain+Credentials+Plugin). Mandatory attributes:
         * text - the text to encrypt
+    * type: file - [file secret](https://wiki.jenkins.io/display/JENKINS/Plain+Credentials+Plugin). Mandatory attributes:
+        * fileName - the fileName
+        * secretBytes - a base64 encoded string of the file contents.
     * type: aws - an [aws secret](https://wiki.jenkins.io/display/JENKINS/CloudBees+AWS+Credentials+Plugin). Mandatory attributes:
         * access_key - AWS access key
         * secret_access_key - AWS secret access key
@@ -513,11 +531,14 @@ The logic for dealing with unknown types is as follows:
 credentials:
   slack:
     type: text
-    description: The slace secret token
+    description: The slak secret token
     text: slack-secret-token
-  hipchat:
-    type: text
-    text: hipchat-token
+  a-secret-file:
+    type: file
+    description: An encrypted file with contents
+    # Always base64
+    secretBytes: VGhpcyBpcyBhIHBsYWluIGNvbnRlbnQK # -> 'This is a plain content' | base64
+    fileName: my-secret-file
   awscred:
     type: aws
     access_key: xxxx
@@ -579,7 +600,6 @@ credentials:
 Responsible for Configuration of the following notifiers:
 * Mail - [Default Mailer](https://wiki.jenkins.io/display/JENKINS/Mailer) and [Email-ext](https://wiki.jenkins.io/display/JENKINS/Email-ext+plugin) plugin
 * [Slack plugin](https://wiki.jenkins.io/display/JENKINS/Slack+Plugin)
-* [Hipchat plugin](https://wiki.jenkins.io/display/JENKINS/Hipchat+Plugin)
 
 ```yaml
 notifiers:
@@ -592,12 +612,6 @@ notifiers:
     defaultSuffix: '@mydomain.com'
     useSsl: true
     charset: UTF-8
-  hipchat:
-    server: my.api.hipchat.com
-    room: JenkinsNotificationRoom
-    sendAs: TestSendAs
-    v2Enabled: true
-    credentialId: hipchat # should be defined in credentials section
   slack:
     teamDomain: teamDoamin
     botUser: true
