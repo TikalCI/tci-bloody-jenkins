@@ -53,6 +53,7 @@ ecs-cloud:
       extraHosts:
         extrHost1: extrHost1
         extrHost2: extrHost2
+      inheritFrom: xxx
       volumes:
         - /home/xxx
         - /home/bbb:ro
@@ -114,6 +115,7 @@ ecs-cloud:
         assert it.jenkinsUrl == 'http://127.0.0.1:8080'
         assert it.tunnel == '127.0.0.1:8080'
         def template = it.templates[0]
+        assert template.inheritFrom == 'xxx'
         assert template.templateName == ''  // taskDefinitionOverride
         assert template.launchType == 'EC2'
         assert template.executionRole == 'ecsTaskExecutionRole111'
@@ -209,6 +211,7 @@ kube-cloud:
       namespace: jenkins-ns
       inheritFrom: general-pod
       nodeSelector: nodeSelector
+      nodeUsageMode: NORMAL
       annotations:
         key1: value1
         key2: value2
@@ -256,6 +259,13 @@ kube-cloud:
         failureThreshold: 10
         periodSeconds: 10
         successThreshold: 10
+    - name: kube-cloud2
+      labels:
+        - generic
+        - kubernetes
+      image: odavid/jenkins-jnlp-template:latest
+      command: /run/me
+
 """)
     configHandler.setup(config)
 
@@ -280,11 +290,12 @@ kube-cloud:
         assert template.namespace == 'jenkins-ns'
         assert template.inheritFrom == 'general-pod'
         assert template.nodeSelector == 'nodeSelector'
+        assert template.nodeUsageMode == hudson.model.Node.Mode.NORMAL
         assert template.annotations.sort{a,b -> a.key.compareToIgnoreCase(b.key)} == [
           new org.csanchez.jenkins.plugins.kubernetes.PodAnnotation('key1', 'value1'),
           new org.csanchez.jenkins.plugins.kubernetes.PodAnnotation('key2', 'value2'),
         ]
-        assert template.yaml.trim() == 'x: y\nz: z'
+        assert template.yamls[0].trim() == 'x: y\nz: z'
         assert template.serviceAccount == 'jenkins-service-account'
         assert template.slaveConnectTimeout == 60
         assert template.instanceCapStr == '10'
@@ -325,6 +336,8 @@ kube-cloud:
         assert template.containers[0].livenessProbe.failureThreshold == 10
         assert template.containers[0].livenessProbe.periodSeconds == 10
         assert template.containers[0].livenessProbe.successThreshold == 10
+
+        assert it.templates[1].nodeUsageMode == hudson.model.Node.Mode.EXCLUSIVE
     }
 }
 
@@ -371,10 +384,15 @@ docker-cloud:
       ports:
         - 9090:8080
         - 1500
+      labels:
+        - generic
       bindAllPorts: true
       privileged: true
       tty: true
       macAddress: mac-address
+    - image: odavid/jenkins-jnlp-slave:latest
+      jnlpUser: jenkins
+      mode: NORMAL
 """)
     configHandler.setup(config)
 
@@ -387,6 +405,7 @@ docker-cloud:
         assert it.dockerApi.apiVersion == '1.24'
         assert it.dockerApi.hostname == 'localhost'
         def template = it.templates[0]
+        assert template.labelString == 'generic'
         assert template.image == 'odavid/jenkins-jnlp-slave:latest'
         assert template.connector.jenkinsUrl == 'http://127.0.0.1:8080'
         assert template.connector.user == 'jenkins'
@@ -411,6 +430,10 @@ docker-cloud:
           new hudson.slaves.EnvironmentVariablesNodeProperty.Entry("ENV1", "env1Value"),
           new hudson.slaves.EnvironmentVariablesNodeProperty.Entry("ENV2", "env2Value"),
         ).envVars
+
+        template = it.templates[1]
+        assert template.mode == hudson.model.Node.Mode.NORMAL
+
     }
 }
 

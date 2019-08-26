@@ -101,6 +101,7 @@ domains:
     site: site
     bindName: my-domain.com\\search
     bindPassword: password
+    tlsConfiguration: TRUST_ALL_CERTIFICATES
 groupLookupStrategy: RECURSIVE
 removeIrrelevantGroups: true
 customDomain: true
@@ -108,7 +109,6 @@ cache:
   size: 400
   ttl: 400
 startTls: true
-tlsConfiguration: TRUST_ALL_CERTIFICATES
 jenkinsInternalUser: admin
 """)
     def realm = configHandler.setupActiveDirectory(config)
@@ -119,11 +119,11 @@ jenkinsInternalUser: admin
     assert adDomain.site == 'site'
     assert adDomain.bindName == 'my-domain.com\\search'
     assert adDomain.bindPassword.toString() == 'password'
+    assert adDomain.tlsConfiguration == hudson.plugins.active_directory.TlsConfiguration.TRUST_ALL_CERTIFICATES
     assert realm.groupLookupStrategy == hudson.plugins.active_directory.GroupLookupStrategy.RECURSIVE
     assert realm.cache.size == 400
     assert realm.cache.ttl == 400
     assert realm.startTls
-    assert realm.tlsConfiguration == hudson.plugins.active_directory.TlsConfiguration.TRUST_ALL_CERTIFICATES
     assert realm.internalUsersDatabase.jenkinsInternalUser == 'admin'
 }
 
@@ -153,7 +153,6 @@ def testSecurityOptions(){
     def config = new Yaml().load("""
 preventCSRF: false
 enableScriptSecurityForDSL: true
-enableCLIOverRemoting: true
 enableAgentMasterAccessControl: false
 disableRememberMe: true
 sshdEnabled: true
@@ -169,7 +168,6 @@ jnlpProtocols:
     assert jenkins.model.GlobalConfiguration.all().get(javaposse.jobdsl.plugin.GlobalJobDslSecurityConfiguration).useScriptSecurity
     assert jenkins.model.Jenkins.instance.disableRememberMe
     assert jenkins.model.Jenkins.instance.injector.getInstance(jenkins.security.s2m.AdminWhitelistRule).masterKillSwitch
-    assert jenkins.CLI.get().enabled
     assert jenkins.model.Jenkins.instance.agentProtocols == (['','2','3','4'].collect{"JNLP$it-connect".toString()} +['Ping']) as Set
     assert org.jenkinsci.main.modules.sshd.SSHD.get().port == 16022
 
@@ -178,7 +176,6 @@ jnlpProtocols:
     assert !jenkins.model.GlobalConfiguration.all().get(javaposse.jobdsl.plugin.GlobalJobDslSecurityConfiguration).useScriptSecurity
     assert !jenkins.model.Jenkins.instance.disableRememberMe
     assert !jenkins.model.Jenkins.instance.injector.getInstance(jenkins.security.s2m.AdminWhitelistRule).masterKillSwitch
-    assert !jenkins.CLI.get().enabled
     assert jenkins.model.Jenkins.instance.agentProtocols == (['4'].collect{"JNLP$it-connect".toString()} +['Ping']) as Set
     assert org.jenkinsci.main.modules.sshd.SSHD.get().port == -1
 

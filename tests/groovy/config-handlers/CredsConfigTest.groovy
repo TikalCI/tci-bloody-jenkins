@@ -28,6 +28,11 @@ text-cred:
   type: text
   description: The slace secret token
   text: slack-secret-token
+file-cred:
+  type: file
+  description: This is a file
+  secretBytes: QUJDREVG
+  fileName: myFile
 aws-cred:
   type: aws
   access_key: xxxx
@@ -122,6 +127,11 @@ dynamic-p4-ticket-cred:
         assert it.description == "The slace secret token"
         assert it.secret.toString() == "slack-secret-token"
     }
+    assertCred("file-cred", org.jenkinsci.plugins.plaincredentials.impl.FileCredentialsImpl){
+        assert it.description == "This is a file"
+        assert it.secretBytes.plainData.encodeBase64().toString() == "QUJDREVG"
+        assert it.fileName == "myFile"
+    }
     assertCred("aws-cred", com.cloudbees.jenkins.plugins.awscredentials.AWSCredentialsImpl){
         assert it.description == "aws description"
         assert it.accessKey == "xxxx"
@@ -142,13 +152,13 @@ dynamic-p4-ticket-cred:
         assert it.description == "git-ssh-key"
         assert it.username == "user"
         assert it.passphrase.toString() == "password1234"
-        assert it.privateKey == text
+        assert it.privateKey.trim() == text.trim()
     }
     assertCred("ssh-key-as-base64", com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey){
         assert it.description == "git-ssh-key"
         assert it.username == "user"
         assert it.passphrase.toString() == "password1234"
-        assert it.privateKey == text
+        assert it.privateKey.trim() == text.trim()
     }
     assertCred("ssh-key-fileOnMaster", com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey){
         assert it.description == "git-ssh-key"

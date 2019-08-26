@@ -25,7 +25,8 @@ def setupActiveDirectory(config){
                     currentDomain.servers?.join(','),
                     currentDomain.site,
                     currentDomain.bindName,
-                    currentDomain.bindPassword
+                    currentDomain.bindPassword,
+                    currentDomain.tlsConfiguration ? hudson.plugins.active_directory.TlsConfiguration.valueOf(currentDomain.tlsConfiguration) : null
                 )
             },
             site,
@@ -40,7 +41,6 @@ def setupActiveDirectory(config){
                 asInt(cache.ttl, 0)
             ) : null,
             asBoolean(startTls, null),
-            tlsConfiguration ? hudson.plugins.active_directory.TlsConfiguration.valueOf(tlsConfiguration) : null,
             jenkinsInternalUser ? new hudson.plugins.active_directory.ActiveDirectoryInternalUsersDatabase(jenkinsInternalUser) : null
         )
     }
@@ -121,8 +121,6 @@ def setupSecurityOptions(config){
     // https://wiki.jenkins.io/display/JENKINS/CSRF+Protection
     config.preventCSRF = asBoolean(config.preventCSRF, true)
     config.enableScriptSecurityForDSL = asBoolean(config.enableScriptSecurityForDSL)
-    // See https://jenkins.io/blog/2017/04/11/new-cli/
-    config.enableCLIOverRemoting = asBoolean(config.enableCLIOverRemoting)
     // See https://wiki.jenkins.io/display/JENKINS/Slave+To+Master+Access+Control
     config.enableAgentMasterAccessControl = asBoolean(config.enableAgentMasterAccessControl, true)
     config.disableRememberMe = asBoolean(config.disableRememberMe)
@@ -139,7 +137,6 @@ def setupSecurityOptions(config){
         jenkins.model.GlobalConfiguration.all()
             .get(javaposse.jobdsl.plugin.GlobalJobDslSecurityConfiguration)
             .useScriptSecurity = enableScriptSecurityForDSL
-        jenkins.CLI.get().enabled = enableCLIOverRemoting
         jenkins.model.Jenkins.instance.disableRememberMe = disableRememberMe
         jenkins.model.Jenkins.instance
             .injector.getInstance(jenkins.security.s2m.AdminWhitelistRule).masterKillSwitch = !enableAgentMasterAccessControl
