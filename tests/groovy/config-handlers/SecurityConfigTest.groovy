@@ -156,11 +156,6 @@ enableScriptSecurityForDSL: true
 enableAgentMasterAccessControl: false
 disableRememberMe: true
 sshdEnabled: true
-jnlpProtocols:
-  - JNLP
-  - JNLP2
-  - JNLP3
-  - JNLP4
 """
     )
     configHandler.setupSecurityOptions(config)
@@ -168,7 +163,6 @@ jnlpProtocols:
     assert jenkins.model.GlobalConfiguration.all().get(javaposse.jobdsl.plugin.GlobalJobDslSecurityConfiguration).useScriptSecurity
     assert jenkins.model.Jenkins.instance.disableRememberMe
     assert jenkins.model.Jenkins.instance.injector.getInstance(jenkins.security.s2m.AdminWhitelistRule).masterKillSwitch
-    assert jenkins.model.Jenkins.instance.agentProtocols == (['','2','3','4'].collect{"JNLP$it-connect".toString()} +['Ping']) as Set
     assert org.jenkinsci.main.modules.sshd.SSHD.get().port == 16022
 
     configHandler.setupSecurityOptions(null)
@@ -176,7 +170,6 @@ jnlpProtocols:
     assert !jenkins.model.GlobalConfiguration.all().get(javaposse.jobdsl.plugin.GlobalJobDslSecurityConfiguration).useScriptSecurity
     assert !jenkins.model.Jenkins.instance.disableRememberMe
     assert !jenkins.model.Jenkins.instance.injector.getInstance(jenkins.security.s2m.AdminWhitelistRule).masterKillSwitch
-    assert jenkins.model.Jenkins.instance.agentProtocols == (['4'].collect{"JNLP$it-connect".toString()} +['Ping']) as Set
     assert org.jenkinsci.main.modules.sshd.SSHD.get().port == -1
 
  }
@@ -192,6 +185,20 @@ adminPassword: admin
     assert hudson.model.User.all.size() == 1
  }
 
+
+ def testJenkinsDatabaseUsers(){
+    def config = new Yaml().load("""
+adminUser: admin
+adminPassword: admin
+users:
+  - id: user1
+    password: user1pass
+"""
+    )
+    def realm = configHandler.setupJenkinsDatabase(config)
+    assert (realm instanceof hudson.security.HudsonPrivateSecurityRealm)
+    assert hudson.model.User.get('user1', false) != null
+ }
 
 def testPlainTextMarkupFormatter(){
     def config = new Yaml().load("""
@@ -241,6 +248,7 @@ testActiveDirectory()
 testAuthorizationStrategy()
 testSecurityOptions()
 testJenkinsDatabase()
+testJenkinsDatabaseUsers()
 testPlainTextMarkupFormatter()
 testSafeHtmlMarkupFormatter()
 testRawHtmlMarkupFormatter()

@@ -247,6 +247,12 @@ Responsible for:
 security:
     realm: jenkins_database
     adminPassword: S3cr3t
+    # When using jenkins_database, you can also create user accounts from YAML configuration
+    users:
+      - id: user1
+        password: passwordOf-user#1
+      - id: user2
+        password: other-password#2
 ```
 
 ```yaml
@@ -361,11 +367,6 @@ security:
     enableAgentMasterAccessControl: true # default true
     disableRememberMe: false # default false
     sshdEnabled: true # default false, if true, port 16022 is exposed
-    jnlpProtocols: # by default only JNLP4 is enabled
-      - JNLP
-      - JNLP2
-      - JNLP3
-      - JNLP4
 
     ## MarkupFormatter plainText
     markupFormatter: plainText
@@ -714,6 +715,8 @@ clouds:
           - ecs-slave
         # The directory within the container that is used as root filesystem
         remoteFs: /home/jenkins
+        # Indicates whether to append a unique agent ID (the agent name) at the end of the remoteFSRoot path. false by default
+        uniqueRemoteFSRoot: false
         # JVM arguments to pass to the jnlp jar
         jvmArgs: -Xmx1g
         # ECS memory reservation
@@ -733,6 +736,12 @@ clouds:
         # an iam role arn for the task. If omitted, the EC2 instance IAM Role that runs the task will be in use
         taskrole: '<TASKROLE_ARN>'
 
+        # See https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html
+        placementStrategies:
+          - type: random
+          - type: spread
+            field: attribute:ecs.availability-zone
+
         #########################
         ## FARGATE Only
         #########################
@@ -749,6 +758,8 @@ clouds:
 clouds:
   # Top level key -> name of the cloud
   kube-cloud:
+    ## default is false
+    directConnection: false
     # type is mandatory
     type: kubernetes
     # Kubernetes URL
@@ -764,10 +775,22 @@ clouds:
         # Your pipeline jobs will need to use node(label){} in order to use this slave template
         labels:
           - kubeslave
+
+        # Time in minutes to retain agent when idle
+        idleMinutes: 10
+
+        # If you want to run this slave on a specific node based on k8s node labels
+        nodeSelector: 'key=value'
+
+
+        # If you want to control the agent container resources
+        resourceRequestMemory: 1024Mi
+        resourceRequestCpu: 512m
+        resourceLimitCpu: 1024m
+        resourceLimitMemory: 512Mi
+
         # The directory within the container that is used as root filesystem
         remoteFs: /home/jenkins
-        # JVM arguments to pass to the jnlp jar
-        jvmArgs: -Xmx1g
         # Volume mappings
         # If your slave need to build docker images, then map the host docker socket
         # to the container docker socket. Also make sure the user within the container
