@@ -157,7 +157,7 @@ openJDK-native-plugin:1.1
 p4:1.10.12
 pam-auth:1.6
 parallel-test-executor:1.13
-parameterized-remote-trigger:3.1.1
+Parameterized-Remote-Trigger:3.1.1
 parameterized-trigger:2.36
 pipeline-aggregator-view:1.8
 pipeline-aws:1.41
