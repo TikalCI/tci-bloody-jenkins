@@ -88,7 +88,6 @@ external-monitor-job:1.7
 ez-templates:1.3.2
 favorite:2.3.2
 filesystem_scm:2.1
-filesystem_scm:2.1
 findbugs:4.72
 gatling:1.3.0
 git-changelog:2.21
