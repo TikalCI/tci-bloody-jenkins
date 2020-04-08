@@ -168,6 +168,7 @@ def ecsCloud(config){
                 temp.launchType,
                 temp.networkMode,
                 temp.remoteFs,
+                asBoolean(temp.uniqueRemoteFSRoot),
                 asInt(temp.memory),
                 asInt(temp.memoryReservation),
                 asInt(temp.cpu),
@@ -191,6 +192,9 @@ def ecsCloud(config){
                     return new ECSTaskTemplate.PortMappingEntry(asInt(containerPort), asInt(hostPort), "tcp")
                 },
                 temp.executionRole ?: 'ecsTaskExecutionRole',
+                temp.placementStrategies?.collect { placementStrategyEntry ->
+                    new ECSTaskTemplate.PlacementStrategyEntry(placementStrategyEntry.type, placementStrategyEntry.field)
+                },
                 temp.taskrole,
                 temp.inheritFrom,
                 asInt(temp.sharedMemorySize),
@@ -248,6 +252,7 @@ def kubernetesCloud(config){
                 podTemplate.containers << containerTemplate
                 podTemplate.namespace = temp.namespace
                 podTemplate.label = temp.labels?.join(' ')
+                podTemplate.idleMinutes = asInt(temp.idleMinutes, 0)
                 podTemplate.nodeUsageMode = temp.nodeUsageMode ? Node.Mode.valueOf(temp.nodeUsageMode) : Node.Mode.EXCLUSIVE
                 podTemplate.inheritFrom = temp.inheritFrom
                 podTemplate.nodeSelector = temp.nodeSelector
@@ -283,6 +288,7 @@ def kubernetesCloud(config){
         kubernetesCloud.serverCertificate = serverCertificate
         kubernetesCloud.maxRequestsPerHostStr = maxRequestsPerHost ? maxRequestsPerHost.toString() : null
         kubernetesCloud.defaultsProviderTemplate = defaultsProviderTemplate
+        kubernetesCloud.directConnection = asBoolean(directConnection)
 
         return kubernetesCloud
     }

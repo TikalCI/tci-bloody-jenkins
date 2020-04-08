@@ -62,6 +62,10 @@ ecs-cloud:
         - /home/zzz:/home/zzz:ro
         - /home/aaa:/home/aaa:rw
         - /home/aaa1:/home/aaa1234:rw
+      placementStrategies:
+        - type: random
+        - type: spread
+          field: attribute:ecs.availability-zone
 
     - name: ecs-template-fargate
       labels:
@@ -165,6 +169,10 @@ ecs-cloud:
         assertMountPoint('/home/zzz', '/home/zzz', '/home/zzz', true)
         assertMountPoint('/home/aaa1', '/home/aaa1', '/home/aaa1234', false)
 
+        assert template.placementStrategyEntries[0].type == 'random'
+        assert template.placementStrategyEntries[1].type == 'spread'
+        assert template.placementStrategyEntries[1].field == 'attribute:ecs.availability-zone'
+
         template = it.templates[1]
         assert template.templateName == 'ecs-template-fargate'
         assert template.launchType == 'FARGATE'
@@ -203,8 +211,9 @@ kube-cloud:
   maxRequestsPerHost: 10
   connectTimeout: 10
   retentionTimeout: 10
-  readTimeout: 10
+  readTimeout: 20
   containerCap: 10
+  directConnection: false
   defaultsProviderTemplate: defaultsProviderTemplate
   templates:
     - name: kube-cloud
@@ -221,6 +230,7 @@ kube-cloud:
         z: z
       slaveConnectTimeout: 60
       instanceCap: 10
+      idleMinutes: 10
       imagePullSecrets:
         - xxx
         - yyy
@@ -280,8 +290,9 @@ kube-cloud:
         assert it.maxRequestsPerHostStr == '10'
         assert it.connectTimeout == 10
         assert it.retentionTimeout == 10
-        assert it.readTimeout == 10
+        assert it.readTimeout == 20
         assert it.containerCap == 10
+        assert !it.directConnection
         assert it.defaultsProviderTemplate == 'defaultsProviderTemplate'
 
         def template = it.templates[0]
@@ -301,6 +312,7 @@ kube-cloud:
         assert template.instanceCapStr == '10'
         assert template.imagePullSecrets.collect{it.name} == ['xxx', 'yyy']
         assert template.label == 'generic kubernetes'
+        assert template.idleMinutes == 10
         assert template.image == 'odavid/jenkins-jnlp-template:latest'
         assert template.command == '/run/me'
         assert template.args == 'x y z'

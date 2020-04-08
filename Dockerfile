@@ -1,4 +1,6 @@
-FROM jenkins/jenkins:2.176.2
+ARG FROM_TAG=2.222.1
+
+FROM jenkins/jenkins:${FROM_TAG}
 
 ARG GOSU_VERSION=1.10
 
@@ -16,21 +18,21 @@ USER root
 RUN \
      # alpine - Install pip and shadow for usermod
      if [ -f /etc/alpine-release ] ; then \
-          apk add --no-cache shadow py-setuptools && \
-          easy_install-2.7 pip==19.1 \
+          apk add --no-cache shadow python3 py3-setuptools && \
+          easy_install-3.6 pip==19.1 \
           ; \
      # debian - Install pip
      elif [ -f /etc/debian_version ] ; then \
           apt-get update -y && \
-          apt-get install -y --no-install-recommends python-setuptools && \
-          easy_install pip==19.1 && \
+          apt-get install -y --no-install-recommends python3-setuptools && \
+          easy_install3 pip==19.1 && \
           rm -rf /var/lib/apt/lists/* \
           ; \
      fi
 
 RUN pip install --no-cache-dir awscli PyYAML==3.12 six requests botocore boto3
 
-RUN curl $CURL_OPTIONS https://releases.hashicorp.com/envconsul/0.7.3/envconsul_0.7.3_linux_amd64.tgz | tar -C /usr/bin -xvzf - && \
+RUN curl $CURL_OPTIONS https://releases.hashicorp.com/envconsul/0.9.0/envconsul_0.9.0_linux_amd64.tgz | tar -C /usr/bin -xvzf - && \
     chmod +x /usr/bin/envconsul
 
 RUN curl $CURL_OPTIONS -o /usr/bin/gosu https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64 && \

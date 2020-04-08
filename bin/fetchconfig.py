@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from __future__ import print_function
 import argparse
 import collections
@@ -8,9 +8,8 @@ import glob
 import os
 import requests
 import yaml
+import io
 from shutil import copyfile
-import StringIO
-
 
 def merge_dict(source, target):
     source = source.copy()
@@ -40,7 +39,7 @@ def fetch_s3(source):
     bucket_name = source.split('/')[0]
     s3_key = '/'.join(source.split('/')[1:])
     try:
-        outbuff = StringIO.StringIO()
+        outbuff = io.BytesIO()
         s3.Bucket(bucket_name).download_fileobj(s3_key, outbuff)
         data = outbuff.getvalue()
         configs.append(dict(src=source, contents=data))
@@ -116,7 +115,7 @@ def main():
         parent_dir = os.path.dirname(out)
         if parent_dir and not os.path.isdir(parent_dir):
             os.makedirs(parent_dir)
-        with open(out, 'wb') as f:
+        with open(out, 'w') as f:
             if config:
                 yaml.safe_dump(config, stream=f, default_flow_style=False)
 
